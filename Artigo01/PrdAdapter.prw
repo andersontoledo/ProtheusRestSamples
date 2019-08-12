@@ -4,10 +4,10 @@
 
 //-------------------------------------------------------------------
 /*/{Protheus.doc} PrdAdapter
-Classe Adapter para o serviÁo
+Classe Adapter para o servi√ßo
 
 @author  Anderson Toledo
-@since   25/14/2019
+@since   25/04/2019
 @version 1.0
 /*/
 //-------------------------------------------------------------------
@@ -19,12 +19,12 @@ EndClass
 
 //-------------------------------------------------------------------
 /*/{Protheus.doc} New
-MÈtodo construtor
+M√©todo construtor
 
 @param cVerb, verbo HTTP utilizado
 
 @author  Anderson Toledo
-@since   25/14/2019
+@since   25/04/2019
 @version 1.0
 /*/
 //-------------------------------------------------------------------
@@ -34,10 +34,10 @@ return
 
 //-------------------------------------------------------------------
 /*/{Protheus.doc} GetListProd
-MÈtodo que retorna uma lista de produtos 
+M√©todo que retorna uma lista de produtos 
 
 @author  Anderson Toledo
-@since   25/14/2019
+@since   25/04/2019
 @version 1.0
 /*/
 //-------------------------------------------------------------------
@@ -57,7 +57,7 @@ Method GetListProd( ) CLASS PrdAdapter
 	cWhere := " B1_FILIAL = '"+ FWxFilial('SB1') +"' AND SB1.D_E_L_E_T_ = ' '"
 	::SetWhere( cWhere )
 
-	//Informa a ordenaÁ„o a ser Utilizada pela Query
+	//Informa a ordena√ß√£o a ser Utilizada pela Query
 	::SetOrder( "B1_COD" )
 
 	//Executa a consulta, se retornar .T. tudo ocorreu conforme esperado
@@ -74,12 +74,12 @@ RETURN
 
 //-------------------------------------------------------------------
 /*/{Protheus.doc} AddMapFields
-FunÁ„o para geraÁ„o do mapa de campos
+Fun√ß√£o para gera√ß√£o do mapa de campos
 
-@param oSelf, object, Objeto da prÛrpia classe
+@param oSelf, object, Objeto da pr√≥rpia classe
 
 @author  Anderson Toledo
-@since   25/14/2019
+@since   25/04/2019
 @version 1.0
 /*/
 //-------------------------------------------------------------------
@@ -95,21 +95,21 @@ Return
 
 //-------------------------------------------------------------------
 /*/{Protheus.doc} GetQuery
-Retorna a query usada no serviÁo
+Retorna a query usada no servi√ßo
 
-@param oSelf, object, Objeto da prÛrpia classe
+@param oSelf, object, Objeto da pr√≥rpia classe
 
 @author  Anderson Toledo
-@since   25/14/2019
+@since   25/04/2019
 @version 1.0
 /*/
 //-------------------------------------------------------------------
 Static Function GetQuery()
 	Local cQuery AS CHARACTER
 	
-	//Obtem a ordem informada na requisiÁ„o, a query exterior SEMPRE deve ter o id #QueryFields# ao invÈs dos campos fixos
-	//necess·riamente n„o precisa ser uma subquery, desde que n„o contenha agregadores no retorno ( SUM, MAX... )
-	//o id #QueryWhere# È onde ser· inserido o clausula Where informado no mÈtodo SetWhere()
+	//Obtem a ordem informada na requisi√ß√£o, a query exterior SEMPRE deve ter o id #QueryFields# ao inv√©s dos campos fixos
+	//necess√°riamente n√£o precisa ser uma subquery, desde que n√£o contenha agregadores no retorno ( SUM, MAX... )
+	//o id #QueryWhere# √© onde ser√° inserido o clausula Where informado no m√©todo SetWhere()
 	cQuery := " SELECT #QueryFields#"
     cQuery +=   " FROM " + RetSqlName( 'SB1' ) + " SB1 "
     cQuery +=   " LEFT JOIN " + RetSqlName( 'SBM' ) + " SBM"
